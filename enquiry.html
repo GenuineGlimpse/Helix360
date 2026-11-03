@@ -30,8 +30,10 @@
 <a href="enquiry.html" class="active">Enquiry</a>
 <a href="contact.html">Contact</a>
 </nav>
-<div class="hamburger" onclick="toggleMenu()">☰</div>
-<button class="cta" onclick="window.location='contact.html'">Contact Us</button>
+
+<!-- FIX: type="button" + NO inline onclick (JS handles it now, stops double-toggle on iOS) -->
+<button type="button" class="hamburger" aria-label="Menu" aria-expanded="false">☰</button>
+<button type="button" class="cta" onclick="window.location='enquiry.html'">Get Quote</button>
 </header>
 
 <main>
