@@ -186,7 +186,7 @@ const galleries = {
 residential: ["images/residential-1.jpeg","images/residential-2.jpeg","images/residential-3.jpeg","images/residential-4.jpeg","images/residential-5.jpeg"],
 plumbing: ["images/plumbing-1.jpeg","images/plumbing-2.jpeg","images/plumbing-3.jpeg","images/plumbing-4.jpeg","images/plumbing-5.jpeg"],
 renovations: ["images/renovations-1.jpeg","images/renovations-2.jpeg","images/renovations-3.jpeg","images/renovations-4.jpeg","images/renovations-5.jpeg"],
-design: ["images/design-1.jpg","images/design-2.jpg","images/design-3.jpg","images/design-4.jpg","images/design-5.jpg"],
+design: ["images/design_1.jpg","images/design_2.jpg","images/design_3.jpg","images/design_4.jpg","images/design_5.jpg"],
 civil: ["images/civil-1.jpg","images/civil-2.jpg","images/civil-3.jpg","images/civil-4.jpg","images/civil-5.jpg"],
 finishing: ["images/finishing-1.jpeg","images/finishing-2.jpeg","images/finishing-3.jpeg","images/finishing-4.jpeg","images/finishing-5.jpeg"],
 };
