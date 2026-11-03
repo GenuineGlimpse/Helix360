@@ -183,27 +183,80 @@ document.querySelector('.nav').classList.toggle('active');
 
 // Gallery system for all tabs
 const galleries = {
-residential: ["images/residential-1.jpeg","images/residential-1.jpeg","images/residential-1.jpeg"],
-plumbing: ["images/plumbing-1.jpeg"],
-renovations: ["images/renovations-1.jpeg"],
-design: ["images/design-1.jpg"],
-civil: ["images/civil-1.jpg"],
-finishing: ["images/finishing-1.jpeg"]
+residential: ["images/residential-1.jpeg","images/residential-2.jpeg","images/residential-3.jpeg","images/residential-4.jpeg","images/residential-5.jpeg"],
+plumbing: ["images/plumbing-1.jpeg","images/plumbing-2.jpeg","images/plumbing-3.jpeg","images/plumbing-4.jpeg","images/plumbing-5.jpeg"],
+renovations: ["images/renovations-1.jpeg","images/renovations-2.jpeg","images/renovations-3.jpeg","images/renovations-4.jpeg","images/renovations-5.jpeg"],
+design: ["images/design-1.jpg","images/design-2.jpg","images/design-3.jpg","images/design-4.jpg","images/design-5.jpg"],
+civil: ["images/civil-1.jpg","images/civil-2.jpg","images/civil-3.jpg","images/civil-4.jpg","images/civil-5.jpg"],
+finishing: ["images/finishing-1.jpeg","images/finishing-2.jpeg","images/finishing-3.jpeg","images/finishing-4.jpeg","images/finishing-5.jpeg"],
 };
 
-function openGallery(type){
-const modal = document.getElementById('galleryModal');
-const mainImg = document.getElementById('galleryMainImg');
-const title = document.getElementById('galleryTitle');
-const thumbs = document.getElementById('galleryThumbs');
+let currentGallery = [];
+let currentIndex = 0;
 
+function openGallery(type){
 if(!galleries[type]) return;
-mainImg.src = galleries[type][0];
-title.textContent = type.toUpperCase() + " - Helix 360 Work";
-thumbs.innerHTML = galleries[type].map(src => `<img src="${src}" onclick="document.getElementById('galleryMainImg').src='${src}'" style="width:80px;height:60px;object-fit:cover;border-radius:6px;cursor:pointer;margin:4px">`).join('');
+currentGallery = galleries[type];
+currentIndex = 0;
+
+let modal = document.getElementById('galleryModal');
+if(!modal){
+modal = document.createElement('div');
+modal.id = 'galleryModal';
+document.body.appendChild(modal);
+}
+
+// Modal background - small box in middle
 modal.style.display = 'flex';
+modal.style.position = 'fixed';
+modal.style.top = '0';
+modal.style.left = '0';
+modal.style.width = '100%';
+modal.style.height = '100%';
+modal.style.background = 'rgba(0,0,0,0.9)';
+modal.style.zIndex = '9999';
+modal.style.justifyContent = 'center';
+modal.style.alignItems = 'center';
+modal.style.padding = '15px';
+modal.style.boxSizing = 'border-box';
+
+// Thumbnails
+let thumbs = '';
+for(let i=0; i<currentGallery.length; i++){
+thumbs += '<img src="' + currentGallery[i] + '" onclick="showImg(' + i + ')" style="width:60px;height:45px;object-fit:cover;border-radius:5px;cursor:pointer;border:2px solid #ddd">';
+}
+
+modal.innerHTML =
+'<div style="background:white;padding:15px;border-radius:12px;width:100%;max-width:600px;max-height:90vh;overflow:auto;position:relative">' +
+'<span onclick="closeGallery()" style="position:absolute;right:12px;top:5px;font-size:30px;cursor:pointer;z-index:10">&times;</span>' +
+'<h3 style="margin:0 0 10px 0;font-size:16px">' + type.toUpperCase() + ' - Helix 360 Work</h3>' +
+'<div style="position:relative;text-align:center;background:#f5f5f5;border-radius:8px">' +
+'<img id="galleryMainImg" src="' + currentGallery[0] + '" style="width:100%;height:320px;object-fit:cover;border-radius:8px;display:block">' +
+'<button onclick="prevImg()" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);background:#000;color:#fff;border:none;width:40px;height:40px;border-radius:50%;font-size:20px;cursor:pointer;z-index:5">&#10094;</button>' +
+'<button onclick="nextImg()" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:#000;color:#fff;border:none;width:40px;height:40px;border-radius:50%;font-size:20px;cursor:pointer;z-index:5">&#10095;</button>' +
+'</div>' +
+'<div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;justify-content:center">' + thumbs + '</div>' +
+'<p style="text-align:center;font-size:12px;color:#666;margin:8px 0 0 0">Tap &lt; &gt; to see next photo</p>' +
+'</div>';
+
+document.body.style.overflow = 'hidden';
+modal.onclick = function(e){ if(e.target === modal) closeGallery(); };
+}
+
+function showImg(i){
+currentIndex = i;
+document.getElementById('galleryMainImg').src = currentGallery[i];
+}
+function nextImg(){
+currentIndex = (currentIndex + 1) % currentGallery.length;
+document.getElementById('galleryMainImg').src = currentGallery[currentIndex];
+}
+function prevImg(){
+currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+document.getElementById('galleryMainImg').src = currentGallery[currentIndex];
 }
 function closeGallery(){
-document.getElementById('galleryModal').style.display = 'none';
+const m = document.getElementById('galleryModal');
+if(m) m.style.display = 'none';
+document.body.style.overflow = 'auto';
 }
-document.getElementById('year').textContent = new Date().getFullYear();
