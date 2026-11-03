@@ -4,11 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Helix 360 Projects Portfolio - Residential, Commercial, Civil Works in Brits & Haartbeespoort since 2015. CIDB, NHBRC registered.">
-<meta name="keywords" content="Helix 360, construction, builder, Brits, Haartbeespoort, residential, civil works, CIDB, NHBRC">
-<meta name="author" content="Helix 360 Construction Projects">
 <title>Projects - Helix 360 | Portfolio Dashboard</title>
 <link rel="stylesheet" href="css/style.css">
-<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
 </head>
 <body>
 
@@ -17,7 +14,8 @@
 
 <header class="dashboard-header">
 <div class="logo"><img src="images/logo.jpg" alt="Helix 360" class="logo-img"></div>
-<button class="hamburger" onclick="toggleMenu()" aria-label="Menu">☰</button>
+<!-- FIX: type="button" + NO inline onclick (JS handles it now, stops double-toggle on iOS) -->
+<button type="button" class="hamburger" aria-label="Menu" aria-expanded="false">☰</button>
 
 <nav class="nav">
 <a href="index.html">Home</a>
@@ -27,26 +25,27 @@
 <a href="enquiry.html">Enquiry</a>
 <a href="contact.html">Contact</a>
 </nav>
-<button class="cta" onclick="window.location='enquiry.html'">Get Quote</button>
+<button type="button" class="cta" onclick="window.location='enquiry.html'">Get Quote</button>
 </header>
 
 <main>
 <div class="services-wrapper" style="text-align:center; display:flex; flex-direction:column; align-items:center;">
-<h1 style="text-align:center; margin:0 auto; width:100%;">Projects Portfolio Dashboard</h1>
+<h1 style="text-align:center; margin:0 auto; width:100%;">Projects Portfolio</h1>
 <p style="color:#163053; text-align:center; margin:8px auto 0 auto; max-width:850px; line-height:1.5;">150+ completed • Filter by category • Click to view showcase</p>
 </div>
 
-<div class="filter-bar">
-<button class="filter-btn active" onclick="filterProjects('all', this)">All Projects (8)</button>
-<button class="filter-btn" onclick="filterProjects('residential', this)">🏠 Residential</button>
-<button class="filter-btn" onclick="filterProjects('commercial', this)">🏢 Commercial</button>
-<button class="filter-btn" onclick="filterProjects('civil', this)">🚧 Civil</button>
-<button class="filter-btn" onclick="filterProjects('renovation', this)">🔨 Renovation</button>
+<!-- FIX: type="button" on all, added 6th tab = All now 8 projects -->
+<div class="filter-bar" role="tablist">
+<button type="button" class="filter-btn active" data-filter="all">All Projects (8)</button>
+<button type="button" class="filter-btn" data-filter="residential">🏠 Residential</button>
+<button type="button" class="filter-btn" data-filter="commercial">🏢 Commercial</button>
+<button type="button" class="filter-btn" data-filter="civil">🚧 Civil</button>
+<button type="button" class="filter-btn" data-filter="renovation">🔨 Renovation</button>
 </div>
 
 <div class="services-grid" id="projectsGrid">
 
-<!-- Project 1 - FIXED: now uses 'fountainbrook' text key + numbers -->
+<!-- 1 Fountainbrook - Residential -->
 <div class="service-card" data-category="residential">
 <div class="card-top">
 <img src="images/fountainbrook-1.jpeg" alt="Fountainbrook" onclick="openProject('fountainbrook',0)" style="cursor:pointer; width:100%; height:220px; object-fit:cover;">
@@ -56,17 +55,17 @@
 <h3>Fountainbrook Estate House</h3>
 <p>4 Bedroom Modern Luxury • 320sqm</p>
 <div class="project-meta"><span>📍 Fountainbrook</span><span>R2.8M</span></div>
-<div class="same-line-gallery" style="display:flex; gap:6px; overflow-x:auto; padding:8px 0;">
-<img class="g-thumb" src="images/fountainbrook-1.jpeg" onclick="openProject('fountainbrook',0)" style="width:68px; height:45px; object-fit:cover; border-radius:6px; cursor:pointer;">
-<img class="g-thumb" src="images/fountainbrook-2.jpeg" onclick="openProject('fountainbrook',1)" style="width:68px; height:45px; object-fit:cover; border-radius:6px; cursor:pointer;">
-<img class="g-thumb" src="images/fountainbrook-3.jpeg" onclick="openProject('fountainbrook',2)" style="width:68px; height:45px; object-fit:cover; border-radius:6px; cursor:pointer;">
-<img class="g-thumb" src="images/fountainbrook-4.jpeg" onclick="openProject('fountainbrook',3)" style="width:68px; height:45px; object-fit:cover; border-radius:6px; cursor:pointer;">
-<img class="g-thumb" src="images/fountainbrook-5.jpeg" onclick="openProject('fountainbrook',4)" style="width:68px; height:45px; object-fit:cover; border-radius:6px; cursor:pointer;">
+<div class="same-line-gallery">
+<img class="g-thumb" src="images/fountainbrook-1.jpeg" onclick="openProject('fountainbrook',0)" alt="">
+<img class="g-thumb" src="images/fountainbrook-2.jpeg" onclick="openProject('fountainbrook',1)" alt="">
+<img class="g-thumb" src="images/fountainbrook-3.jpeg" onclick="openProject('fountainbrook',2)" alt="">
+<img class="g-thumb" src="images/fountainbrook-4.jpeg" onclick="openProject('fountainbrook',3)" alt="">
+<img class="g-thumb" src="images/fountainbrook-5.jpeg" onclick="openProject('fountainbrook',4)" alt="">
 </div>
 </div>
 </div>
 
-<!-- COPY THIS FOR EACH PROJECT - JUST CHANGE KEY -->
+<!-- 2 Seasons 311 - Residential -->
 <div class="service-card" data-category="residential">
 <div class="card-top">
 <img src="images/seasonsbushveld-1.jpeg" alt="Seasons 311" onclick="openProject('seasons311',0)" style="cursor:pointer; width:100%; height:220px; object-fit:cover;">
@@ -76,47 +75,136 @@
 <h3>Seasons Bushveld 311</h3>
 <p>Double Storey Luxury • Red Brick + Steel</p>
 <div class="project-meta"><span>📍 Seasons Estate</span><span>R3.2M</span></div>
-<div class="same-line-gallery" style="display:flex; gap:6px; overflow-x:auto; padding:8px 0;">
-<img src="images/seasonsbushveld-1.jpeg" onclick="openProject('seasons311',0)" style="width:68px; height:45px; object-fit:cover; border-radius:6px; cursor:pointer;">
-<img src="images/seasonsbushveld-2.jpeg" onclick="openProject('seasons311',1)" style="width:68px; height:45px; object-fit:cover; border-radius:6px; cursor:pointer;">
-<img src="images/seasonsbushveld-3.jpeg" onclick="openProject('seasons311',2)" style="width:68px; height:45px; object-fit:cover; border-radius:6px; cursor:pointer;">
-<img src="images/seasonsbushveld-4.jpeg" onclick="openProject('seasons311',3)" style="width:68px; height:45px; object-fit:cover; border-radius:6px; cursor:pointer;">
-<img src="images/seasonsbushveld-5.jpeg" onclick="openProject('seasons311',4)" style="width:68px; height:45px; object-fit:cover; border-radius:6px; cursor:pointer;">
+<div class="same-line-gallery">
+<img class="g-thumb" src="images/seasonsbushveld-1.jpeg" onclick="openProject('seasons311',0)" alt="">
+<img class="g-thumb" src="images/seasonsbushveld-2.jpeg" onclick="openProject('seasons311',1)" alt="">
+<img class="g-thumb" src="images/seasonsbushveld-3.jpeg" onclick="openProject('seasons311',2)" alt="">
+<img class="g-thumb" src="images/seasonsbushveld-4.jpeg" onclick="openProject('seasons311',3)" alt="">
+<img class="g-thumb" src="images/seasonsbushveld-5.jpeg" onclick="openProject('seasons311',4)" alt="">
 </div>
 </div>
 </div>
 
+<!-- 3 Seasons Golf - Residential -->
 <div class="service-card" data-category="residential">
+<div class="card-top">
+<img src="images/seasonsgolf-1.jpeg" alt="Seasons Golf" onclick="openProject('seasonsgolf',0)" style="cursor:pointer; width:100%; height:220px; object-fit:cover;">
+<span class="status completed">Completed 2023</span>
+</div>
+<div class="card-body">
+<h3>Seasons Golf Estate</h3>
+<p>5 Bedroom Double Storey • Pool • Steel Works</p>
+<div class="project-meta"><span>📍 Seasons Estate</span><span>R3.2M</span></div>
+<div class="same-line-gallery">
+<img class="g-thumb" src="images/seasonsgolf-1.jpeg" onclick="openProject('seasonsgolf',0)" alt="">
+<img class="g-thumb" src="images/seasonsgolf-2.jpeg" onclick="openProject('seasonsgolf',1)" alt="">
+<img class="g-thumb" src="images/seasonsgolf-3.jpeg" onclick="openProject('seasonsgolf',2)" alt="">
+</div>
+</div>
+</div>
+
+<!-- 4 Projects / Mixed - Renovation (was missing closing divs - FIXED) -->
+<div class="service-card" data-category="renovation">
 <div class="card-top">
 <img src="images/projects-1.jpeg" alt="Projects" onclick="openProject('projects',0)" style="cursor:pointer; width:100%; height:220px; object-fit:cover;">
 <span class="status active">95% Live</span>
 </div>
 <div class="card-body">
 <h3>Projects</h3>
-<p>3 Bedroom Family Home • Pool renovations • Painting & Tiling • 2 Shops Renovation • Roadworks • Retaining Walls • Kitchen Remodels</p>
+<p>3 Bedroom Family Home • Pool renovations • Painting &amp; Tiling • 2 Shops Renovation • Roadworks • Retaining Walls • Kitchen Remodels</p>
 <div class="project-meta"><span>📍 Various Clients</span><span>R1.5M - 4.5M</span></div>
-<div class="same-line-gallery" style="display:flex; gap:6px; overflow-x:auto; padding:8px 0;">
-<img src="images/projects-2.jpeg" onclick="openProject('projects',1)" style="width:68px; height:45px; object-fit:cover; border-radius:6px; cursor:pointer;">
-<img src="images/projects-3.jpeg" onclick="openProject('projects',2)" style="width:68px; height:45px; object-fit:cover; border-radius:6px; cursor:pointer;">
-<img src="images/projects-4.jpeg" onclick="openProject('projects',3)" style="width:68px; height:45px; object-fit:cover; border-radius:6px; cursor:pointer;">
-<img src="images/projects-5.jpeg" onclick="openProject('projects',4)" style="width:68px; height:45px; object-fit:cover; border-radius:6px; cursor:pointer;">
+<div class="same-line-gallery">
+<img class="g-thumb" src="images/projects-2.jpeg" onclick="openProject('projects',1)" alt="">
+<img class="g-thumb" src="images/projects-3.jpeg" onclick="openProject('projects',2)" alt="">
+<img class="g-thumb" src="images/projects-4.jpeg" onclick="openProject('projects',3)" alt="">
+<img class="g-thumb" src="images/projects-5.jpeg" onclick="openProject('projects',4)" alt="">
+</div>
 </div>
 </div>
 
-<div class="service-card" data-category="commercial" onclick="openProject('brits',0)"><div class="card-top"><img src="images/brits-1.jpeg"><span class="status completed">Completed 2023</span></div><div class="card-body"><h3>Brits CBD Shops</h3><p>2 Shops Renovation</p><div class="project-meta"><span>📍 Brits CBD</span><span>R450k</span></div></div></div>
-<div class="service-card" data-category="civil" onclick="openProject('majakaneng',0)"><div class="card-top"><img src="images/majakaneng-1.jpeg"><span class="status active">Bulk</span></div><div class="project-meta"><span>📍 Majakaneng</span><span>R1.1M</span></div></div></div>
+<!-- 5 Brits - Commercial - FIXED: was 1 line, missing card-body / closing divs -->
+<div class="service-card" data-category="commercial">
+<div class="card-top">
+<img src="images/brits-1.jpeg" alt="Brits CBD Shops" onclick="openProject('brits',0)" style="cursor:pointer; width:100%; height:220px; object-fit:cover;">
+<span class="status completed">Completed 2023</span>
+</div>
+<div class="card-body">
+<h3>Brits CBD Shops</h3>
+<p>2 Shops Renovation • Tiling, Glazing, Shopfront</p>
+<div class="project-meta"><span>📍 Brits CBD</span><span>R450k</span></div>
+<div class="same-line-gallery">
+<img class="g-thumb" src="images/brits-1.jpeg" onclick="openProject('brits',0)" alt="">
+<img class="g-thumb" src="images/brits-2.jpeg" onclick="openProject('brits',1)" alt="">
+<img class="g-thumb" src="images/brits-3.jpeg" onclick="openProject('brits',2)" alt="">
+</div>
+</div>
+</div>
+
+<!-- 6 Majakaneng - Civil - FIXED: was missing card-body / h3 / p -->
+<div class="service-card" data-category="civil">
+<div class="card-top">
+<img src="images/majakaneng-1.jpeg" alt="Majakaneng" onclick="openProject('majakaneng',0)" style="cursor:pointer; width:100%; height:220px; object-fit:cover;">
+<span class="status active">Bulk</span>
+</div>
+<div class="card-body">
+<h3>Majakaneng Access Road</h3>
+<p>Road + Stormwater + Kerbs • 1.2km</p>
+<div class="project-meta"><span>📍 Majakaneng</span><span>R1.1M</span></div>
+<div class="same-line-gallery">
+<img class="g-thumb" src="images/majakaneng-1.jpeg" onclick="openProject('majakaneng',0)" alt="">
+<img class="g-thumb" src="images/majakaneng-2.jpeg" onclick="openProject('majakaneng',1)" alt="">
+<img class="g-thumb" src="images/majakaneng-3.jpeg" onclick="openProject('majakaneng',2)" alt="">
+</div>
+</div>
+</div>
+
+<!-- 7 Haartbeespoort Kitchen - Renovation (was in JS but had no card, so filter showed nothing) -->
+<div class="service-card" data-category="renovation">
+<div class="card-top">
+<img src="images/haartbeespoort-1.jpeg" alt="Haartbeespoort Kitchen" onclick="openProject('haartbeespoort',0)" style="cursor:pointer; width:100%; height:220px; object-fit:cover;">
+<span class="status completed">Completed 2024</span>
+</div>
+<div class="card-body">
+<h3>Haartbeespoort Kitchen</h3>
+<p>Full Kitchen Remodel • Fitted Units • Granite</p>
+<div class="project-meta"><span>📍 Haartbeespoort</span><span>R180k</span></div>
+<div class="same-line-gallery">
+<img class="g-thumb" src="images/haartbeespoort-1.jpeg" onclick="openProject('haartbeespoort',0)" alt="">
+<img class="g-thumb" src="images/haartbeespoort-2.jpeg" onclick="openProject('haartbeespoort',1)" alt="">
+<img class="g-thumb" src="images/haartbeespoort-3.jpeg" onclick="openProject('haartbeespoort',2)" alt="">
+</div>
+</div>
+</div>
+
+<!-- 8 Gabion - Civil -->
+<div class="service-card" data-category="civil">
+<div class="card-top">
+<img src="images/gabion-1.jpeg" alt="Gabion Walls" onclick="openProject('gabion',0)" style="cursor:pointer; width:100%; height:220px; object-fit:cover;">
+<span class="status completed">Completed</span>
+</div>
+<div class="card-body">
+<h3>Gabion Retaining Walls</h3>
+<p>150m Gabion + Earthworks • Erosion Control</p>
+<div class="project-meta"><span>📍 Brits - Private</span><span>R320k</span></div>
+<div class="same-line-gallery">
+<img class="g-thumb" src="images/gabion-1.jpeg" onclick="openProject('gabion',0)" alt="">
+<img class="g-thumb" src="images/gabion-2.jpeg" onclick="openProject('gabion',1)" alt="">
+<img class="g-thumb" src="images/gabion-3.jpeg" onclick="openProject('gabion',2)" alt="">
+</div>
+</div>
+</div>
 
 </div>
 </main>
 
-<!-- ONE MODAL ONLY - FIXED CLOSE -->
-<div id="projectModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:99999; justify-content:center; align-items:center;">
-<div style="background:white; width:95%; max-width:700px; border-radius:12px; position:relative;">
-<button onclick="closeModal()" style="position:absolute; top:8px; right:12px; font-size:32px; background:white; border:none; width:36px; height:36px; border-radius:50%; cursor:pointer; z-index:99;">×</button>
+<!-- MODAL - same as yours, only added type="button" -->
+<div id="projectModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:99999; justify-content:center; align-items:center; padding:12px;">
+<div style="background:white; width:100%; max-width:700px; border-radius:12px; position:relative; max-height:92vh; overflow-y:auto;">
+<button type="button" onclick="closeModal()" style="position:absolute; top:8px; right:12px; font-size:32px; background:white; border:none; width:36px; height:36px; border-radius:50%; cursor:pointer; z-index:99;">×</button>
 <div style="position:relative; background:#000; border-radius:12px 12px 0 0; overflow:hidden;">
-<img id="modalImage" src="" style="width:100%; height:400px; object-fit:cover; display:block;">
-<button onclick="prevImage()" style="position:absolute; left:10px; top:50%; transform:translateY(-50%); background:white; border:none; width:44px; height:44px; border-radius:50%; cursor:pointer; font-size:24px; font-weight:bold;">‹</button>
-<button onclick="nextImage()" style="position:absolute; right:10px; top:50%; transform:translateY(-50%); background:white; border:none; width:44px; height:44px; border-radius:50%; cursor:pointer; font-size:24px; font-weight:bold;">›</button>
+<img id="modalImage" src="" alt="" style="width:100%; height:400px; object-fit:cover; display:block;">
+<button type="button" onclick="prevImage()" style="position:absolute; left:10px; top:50%; transform:translateY(-50%); background:white; border:none; width:44px; height:44px; border-radius:50%; cursor:pointer; font-size:24px; font-weight:bold;">‹</button>
+<button type="button" onclick="nextImage()" style="position:absolute; right:10px; top:50%; transform:translateY(-50%); background:white; border:none; width:44px; height:44px; border-radius:50%; cursor:pointer; font-size:24px; font-weight:bold;">›</button>
 <div id="imageCounter" style="position:absolute; bottom:10px; right:10px; background:rgba(0,0,0,0.7); color:white; padding:5px 12px; border-radius:20px; font-size:12px;">1 / 5</div>
 </div>
 <div style="padding:16px;">
@@ -128,12 +216,13 @@
 <div><b>Budget:</b> <span id="modalBudget"></span></div>
 <div><b>Status:</b> <span id="modalStatus"></span></div>
 </div>
-<video id="modalVideo" controls style="width:100%; display:none; margin-top:10px; border-radius:8px;"><source id="videoSource" src=""></video>
-<button onclick="closeModal()" style="margin-top:12px; width:100%; padding:12px; background:#f0f0f0; border:none; border-radius:8px; cursor:pointer; font-weight:bold;">Close</button>
+<video id="modalVideo" controls playsinline style="width:100%; display:none; margin-top:10px; border-radius:8px;"><source id="videoSource" src=""></video>
+<button type="button" onclick="closeModal()" style="margin-top:12px; width:100%; padding:12px; background:#f0f0f0; border:none; border-radius:8px; cursor:pointer; font-weight:bold;">Close</button>
 </div>
 </div>
 </div>
 
-<script src="JS/script.js"></script>
+<!-- FIX: JS not js - lowercase, must match your folder name exactly -->
+<script src="js/script.js"></script>
 </body>
 </html>

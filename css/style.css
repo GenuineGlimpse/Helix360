@@ -462,3 +462,51 @@ display:flex; align-items:center; justify-content:center; font-size:10px;
     border: none;
     font-size: 22px;
 }
+
+/* ===== iOS / iPad FIX - MUST BE LAST ===== */
+.blueprint-bg{ background-color:#FFF6EB; }
+
+.hamburger{
+display:none; cursor:pointer; touch-action:manipulation;
+-webkit-tap-highlight-color:transparent; background:#fff; border:1px solid #e2e8f0;
+border-radius:10px; width:44px; height:44px; min-width:44px; min-height:44px;
+font-size:22px; line-height:1; align-items:center; justify-content:center;
+position:relative; z-index:1001;
+}
+.filter-btn, .cta, .service-card, .g-thumb{
+touch-action:manipulation; -webkit-tap-highlight-color:transparent; cursor:pointer;
+}
+.blueprint-grid, .blueprint-bg{ pointer-events:none !important; }
+
+/* Filter bar - responsive: swipe sideways on phone, wrap on laptop */
+.filter-bar{
+display:flex !important; gap:10px !important; flex-wrap:nowrap !important;
+overflow-x:auto !important; overflow-y:hidden !important; padding:0 16px 16px !important;
+-webkit-overflow-scrolling:touch; scrollbar-width:none; scroll-snap-type:x proximity;
+}
+.filter-bar::-webkit-scrollbar{ display:none; }
+.filter-btn{ flex:0 0 auto !important; scroll-snap-align:start; white-space:nowrap; min-height:44px; padding:10px 16px; }
+
+/* Thumbs - big enough to tap on iPhone */
+.same-line-gallery{ display:flex; gap:6px; overflow-x:auto; padding:10px 0 4px; -webkit-overflow-scrolling:touch; }
+.same-line-gallery .g-thumb{ width:68px; height:48px; flex-shrink:0; border-radius:8px; object-fit:cover; cursor:pointer; border:1px solid #e2e8f0; }
+
+@media(max-width:1024px){
+.services-grid{ grid-template-columns:repeat(2,1fr) !important; }
+}
+@media(max-width:768px){
+.dashboard-header{ position:sticky; }
+.hamburger{ display:flex !important; }
+.cta{ display:none !important; }
+/* Both .open and .active work now */
+.nav, nav.nav{
+display:none !important; position:absolute !important; top:64px !important; left:12px !important; right:12px !important;
+width:auto !important; flex-direction:column !important; padding:12px !important; gap:4px !important;
+background:#fff !important; border-radius:16px !important; box-shadow:0 16px 40px rgba(0,0,0,.18) !important; z-index:1000 !important;
+}
+.nav.open, .nav.active, nav.nav.open, nav.nav.active{ display:flex !important; }
+.nav a{ display:block !important; width:100% !important; padding:14px 16px !important; font-size:16px !important; }
+.services-grid{ grid-template-columns:1fr !important; }
+#projectModal{ padding:10px !important; }
+#modalImage{ height:280px !important; }
+}
