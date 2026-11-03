@@ -191,9 +191,6 @@ civil: ["images/civil-1.jpg","images/civil-2.jpg","images/civil-3.jpg","images/c
 finishing: ["images/finishing-1.jpeg","images/finishing-2.jpeg","images/finishing-3.jpeg","images/finishing-4.jpeg","images/finishing-5.jpeg"],
 };
 
-let currentGallery = [];
-let currentIndex = 0;
-
 function openGallery(type){
 if(!galleries[type]) return;
 currentGallery = galleries[type];
