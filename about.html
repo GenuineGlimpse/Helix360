@@ -21,9 +21,7 @@
 <!-- Logo -->
 <div class="logo">
     <img src="images/logo.jpg" alt="Helix 360 Construction 3D Logo" class="logo-img">
-    <!-- FIX: type="button" + NO inline onclick (JS handles it now, stops double-toggle on iOS) -->
-<button type="button" class="hamburger" aria-label="Menu" aria-expanded="false">☰</button>
-
+   
 <!-- Navigation - must work across all 5 pages -->
 <nav class="nav">
 <a href="index.html">Home</a>
@@ -33,6 +31,8 @@
 <a href="enquiry.html">Enquiry</a>
 <a href="contact.html">Contact</a>
 </nav>
+ <!-- FIX: type="button" + NO inline onclick (JS handles it now, stops double-toggle on iOS) -->
+<button type="button" class="hamburger" aria-label="Menu" aria-expanded="false">☰</button>
 <button type="button" class="cta" onclick="window.location='enquiry.html'">Get Quote</button>
 </header>
 
@@ -95,3 +95,8 @@
 © 2024 Helix 360 Construction Projects (Pty) Ltd | Reg 2015/157951/07 | 082 545 0851 | helix360.cp@gmail.com • Bokfontein 8127 Brits 0250 | PO Box 759 Hartbeespoort 0260
 </footer>
 </div>
+
+<!-- FIX: JS not js - lowercase, must match your folder name exactly -->
+<script src="js/script.js"></script>
+</body>
+</html>
