@@ -21,7 +21,8 @@
 <!-- Logo -->
 <div class="logo">
     <img src="images/logo.jpg" alt="Helix 360 Construction 3D Logo" class="logo-img">
-</div>
+    <!-- FIX: type="button" + NO inline onclick (JS handles it now, stops double-toggle on iOS) -->
+<button type="button" class="hamburger" aria-label="Menu" aria-expanded="false">☰</button>
 
 <!-- Navigation - must work across all 5 pages -->
 <nav class="nav">
@@ -32,9 +33,6 @@
 <a href="enquiry.html">Enquiry</a>
 <a href="contact.html">Contact</a>
 </nav>
-
-<!-- FIX: type="button" + NO inline onclick (JS handles it now, stops double-toggle on iOS) -->
-<button type="button" class="hamburger" aria-label="Menu" aria-expanded="false">☰</button>
 <button type="button" class="cta" onclick="window.location='enquiry.html'">Get Quote</button>
 </header>
 
