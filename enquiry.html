@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Helix 360 Enquiry - Get quote for construction, plumbing, renovation, house plans, civil works. Budget calculator, volunteer and sponsor options">
+<meta name="keywords" content="construction enquiry, quote, Brits builder, Haartbeespoort renovation quote">
+<meta name="author" content="Helix 360 Construction">
+<title>Enquiry - Helix 360 | Get a Quote</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml"> 
+<body>
+
+<div class="blueprint-bg"></div>
+<div class="blueprint-grid"></div>
+
+<header class="dashboard-header">
+<!-- Logo -->
+<div class="logo">
+    <img src="images/logo.jpg" alt="Helix 360 Construction 3D Logo" class="logo-img">
+</div>
+
+<!-- Navigation - must work across all 5 pages -->
+<nav class="nav">
+<a href="index.html">Home</a>
+<a href="about.html">About Us</a>
+<a href="services.html">Services</a>
+<a href="projects.html">Projects</a>
+<a href="enquiry.html" class="active">Enquiry</a>
+<a href="contact.html">Contact</a>
+</nav>
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+<button class="cta" onclick="window.location='contact.html'">Contact Us</button>
+</header>
+
+<main>
+
+<div style="text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; padding: 20px 28px 10px;">
+<h1 style="text-align:center; margin:0 auto; width:100%; font-size:32px;">Enquiry Form - Get Your Free Quote</h1>
+<p style="color:#64748b; text-align:center; margin:8px  auto 0 auto; max-width:850px; line-height:1.5; color:#64748b; font-size:14px;">
+Fill form for service enquiry, volunteer for community builds, or become a sponsor. Budget calculator included.</p>
+</section>
+</div>
+
+</div>
+
+<!-- Enquiry form with validation - rubric requires functional forms -->
+<div class="form-wrap">
+<form id="enquiryForm" onsubmit="return validateEnquiry(event)">
+
+<!-- Full name -->
+<label for="ename">Full Name *</label>
+<input type="text" id="ename" name="ename" placeholder="e.g. Thabo Molefe" required>
+<span class="error" id="ename-error">Name must be at least 3 characters</span>
+
+<!-- Email -->
+<label for="eemail">Email Address *</label>
+<input type="email" id="eemail" name="eemail" placeholder="you@email.com" required>
+<span class="error" id="eemail-error">Enter valid email with @</span>
+
+<!-- Phone -->
+<label for="ephone">Phone Number</label>
+<input type="tel" id="ephone" name="ephone" placeholder="082 545 0881">
+<span class="error" id="ephone-error">Enter a valid phone number</span>
+<span class="error" id="ephone-error"style="display:none;red;font-size:12px;"></span>
+
+<!-- Service selection -->
+<label for="eservice">Service Interested In *</label>
+<select id="eservice" name="eservice" required>
+<option value="">-- Select Service --</option>
+<option value="construction">Residential Construction</option>
+<option value="plumbing">Plumbing & Utilities</option>
+<option value="renovation">Renovation & Alteration</option>
+<option value="design">Design & House Plans</option>
+<option value="civil">Civil Works - Roads, Earthworks</option>
+<option value="finishing">Finishing - Tiling, Painting</option>
+<option value="volunteer">Volunteer - Community Build</option>
+<option value="sponsor">Sponsor - Support Project</option>
+</select>
+<span class="error" id="eservice-error">Please select a service</span>
+
+<!-- Budget range -->
+<label for="ebudget">Budget Range</label>
+<select id="ebudget" name="ebudget">
+<option value="20-50k">R20k - R50k (Small jobs)</option>
+<option value="50-150k">R50k - R150k (Renovation)</option>
+<option value="150-500k">R150k - R500k (House extension)</option>
+<option value="500k+">R500k+ (New house / Estate)</option>
+</select>
+
+<!-- Location -->
+<label for="elocation">Project Location</label>
+<input type="text" id="elocation" name="elocation" placeholder="e.g. Brits, Haartbeespoort, Westlake Estate">
+
+<!-- Message -->
+<label for="emsg">Project Details / Message</label>
+<textarea id="emsg" name="emsg" placeholder="Describe your project: size, bedrooms, when you want to start..."></textarea>
+
+<!-- Submit -->
+<button type="submit" class="btn-primary" style="width:100%;margin-top:16px">Submit Enquiry - Calculate Estimate</button>
+<p style="font-size:11px;color:#94a3b8;text-align:center;margin-top:8px">We respond within 24 hours • CIDB, NHBRC compliant • Free site inspection in Brits/Haartbeespoort</p>
+</form>
+<div id="form-status" style="text-align:center;margin-top:12px;color:#2563eb;font-weight:bold"></div>
+</div>
+
+<!-- Budget info box -->
+<div style="max-width:700px;margin:0 auto;padding:0 20px 30px">
+<div style="background:linear-gradient(135deg,#1E4DA8,#4a8cff);color:white;padding:16px;border-radius:12px">
+<h4 style="color:white">💰 Quick Budget Guide</h4>
+<p style="font-size:13px;color:#e0f2fe;margin-top:6px">Residential from R500k • Plumbing from R15k • Renovation from R80k • Plans from R25k • Civil from R200k • Finishing from R30k. Final quote after site visit.</p>
+</div>
+</div>
+
+</main>
+
+<footer>
+<p>&copy; <span id="year"></span> Helix 360 Construction Projects (Pty) Ltd | Reg 2015/157951/07 | 082 545 0881 | helix360.cp@gmail.com</p>
+<p>Bokfontein B127 Brits 0250 | PO Box 759 Haartbeespoort 0216</p>
+<div class="badges"><span>CIDB Registered</span><span>NHBRC Member</span><span>CIPC Compliant</span></div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

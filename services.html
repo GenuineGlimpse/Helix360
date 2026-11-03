@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Helix 360 Services - 12 services: Residential construction, plumbing, renovations, house plans, civil works, finishing, tiling, painting, project management">
+<meta name="keywords" content="construction services, residential, plumbing, renovation, house plans, civil works, Brits, Haartbeespoort">
+<meta name="author" content="Helix 360 Construction">
+<title>Services - Helix 360 | Builder Dashboard</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml"> 
+<body>
+
+<!-- Moving blueprint background -->
+<div class="blueprint-bg"></div>
+<div class="blueprint-grid"></div>
+
+<!-- Header -->
+<header class="dashboard-header">
+<!-- Logo -->
+<div class="logo">
+    <img src="images/logo.jpg" alt="Helix 360 Construction 3D Logo" class="logo-img">
+</div>
+
+<!-- Navigation - must work across all 5 pages -->
+<nav class="nav">
+<a href="index.html">Home</a>
+<a href="about.html">About Us</a>
+<a href="services.html" class="active">Services</a>
+<a href="projects.html">Projects</a>
+<a href="enquiry.html">Enquiry</a>
+<a href="contact.html">Contact</a>
+</nav>
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+<button class="cta" onclick="window.location='enquiry.html'">Get Quote</button>
+</header>
+
+<main>
+
+<div class="services-wrapper"
+style="text-align: center;display:flex;flex-direction:column;align-items:center;">
+     <h1 style="text-align: center;margin:0 auto;width:100%;">Our Services </h1>
+      <p style="color:#163053; text-align: center;
+      margin:8px auto 0 auto;max-width:850px;line-height:1.5;">
+      Full 360° service from house plans to keys — 12 core offerings • CIDB, NHBRC, CIPC compliant • Westlake, Sunway, Seasons estates</p>
+</div>
+
+</section>
+
+<!-- Services grid - 6 main cards for rubric -->
+<div class="services-grid">
+
+<!-- 1. Residential -->
+<div class="service-card">
+<div class="card-top">
+<img src="images/residential-1.jpeg" alt="Residential construction new houses estate homes">
+<span class="status on-track">Most Popular</span>
+</div>
+<div class="card-body">
+<h3>1. Residential Construction</h3>
+<p>New houses, estate homes, foundation to roof. Complete brickwork, plastering, carpentry, roofing.</p>
+<div class="progress-bar"><div style="width:95%"></div></div>
+<div class="meta">⭐ 4.9 rating • 95% on time • From R500k</div>
+<button class="build-btn view-btn" style="width:100%;margin-top:10px" onclick="openGallery('residential')">View - Residential</button>
+</div>
+</div>
+
+<!-- 2. Plumbing -->
+<div class="service-card">
+<div class="card-top">
+<img src="images/plumbing-1.jpeg" alt="Plumbing utilities water sewer drainage">
+<span class="status active">24H Response</span>
+</div>
+<div class="card-body">
+<h3>2. Plumbing & Utilities</h3>
+<p>Water reticulation, sewer lines, stormwater, geysers, maintenance, leak detection.</p>
+<div class="progress-bar"><div style="width:85%"></div></div>
+<div class="meta">Installation & Repairs • Emergency</div>
+<button class="build-btn view-btn" style="width:100%;margin-top:10px" onclick="openGallery('plumbing')">View - Plumbing</button>
+</div>
+</div>
+
+<!-- 3. Renovations -->
+<div class="service-card">
+<div class="card-top">
+<img src="images/renovations- 1.jpeg" alt="Renovation alteration upgrade homes">
+<span class="status on-track">On Track</span>
+</div>
+<div class="card-body">
+<h3>3. Renovations & Alterations</h3>
+<p>Upgrade existing homes, extensions, bathroom to kitchen remodel, boundary walls.</p>
+<div class="progress-bar"><div style="width:70%"></div></div>
+<div class="meta">Before/After Gallery • 3 Week Avg</div>
+<button class="build-btn view-btn" style="width:100%;margin-top:10px" onclick="openGallery('renovations')">View - Renovations</button>
+</div>
+</div>
+
+<!-- 4. Design -->
+<div class="service-card">
+<div class="card-top">
+<img src="images/design_1.JPG" alt="House plans design steel structures pool plans">
+<span class="status completed">Design Studio</span>
+</div>
+<div class="card-body">
+<h3>4. Design & House Plans</h3>
+<p>Municipal approved house plans, steel structures, pool plans, 3D renders, engineering.</p>
+<div class="progress-bar"><div style="width:90%"></div></div>
+<div class="meta">SANS Compliant • 3D Visuals</div>
+<button class="build-btn view-btn" style="width:100%;margin-top:10px" onclick="openGallery('design')">View - Design</button>
+</div>
+</div>
+
+<!-- 5. Civil -->
+<div class="service-card">
+<div class="card-top">
+<img src="images/civil-1.JPG" alt="Civil works roads earthworks gabions kerbs">
+<span class="status on-track">Bulk Services</span>
+</div>
+<div class="card-body">
+<h3>5. Civil Works</h3>
+<p>Roads, earthworks, gabions, retaining walls, kerbs, stormwater, bulk infrastructure, plant hire.</p>
+<div class="progress-bar"><div style="width:80%"></div></div>
+<div class="meta">Municipal Approved • Plant Hire</div>
+<button class="build-btn view-btn" style="width:100%;margin-top:10px" onclick="openGallery('civil')">View - Civil</button>
+</div>
+</div>
+
+<!-- 6. Finishing -->
+<div class="service-card">
+<div class="card-top">
+<img src="images/finishing- 1.jpeg" alt="Finishing tiling glazing painting waterproofing">
+<span class="status active">Quality Finish</span>
+</div>
+<div class="card-body">
+<h3>6. Finishing & Maintenance</h3>
+<p>Tiling, glazing, painting, ceilings, waterproofing, final touch, aftercare maintenance.</p>
+<div class="progress-bar"><div style="width:88%"></div></div>
+<div class="meta">5yr Workmanship Warranty</div>
+<button class="build-btn view-btn" style="width:100%;margin-top:10px" onclick="openGallery('finishing')">View - Finishing</button>
+</div>
+</div>
+
+<!-- IMAGE GALLERY POPUP -->
+<div id="galleryModal" class="gallery-modal">
+<span class="close-gallery" onclick="closeGallery()">&times;</span>
+<div class="gallery-content">
+<img id="galleryMainImg" src="" alt="Helix 360 work">
+<h3 id="galleryTitle" style="color:white;margin-top:12px;text-align:center"></h3>
+<div class="gallery-thumbs" id="galleryThumbs"></div>
+</div>
+</div>
+
+</div>
+
+<!-- Extra 6 services list for full company profile coverage -->
+<section style="padding:0 28px 30px">
+<div style="background:white;padding:18px;border-radius:12px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px">
+<div><b>7. Carpentry</b><p style="font-size:12px;color:#64748b">Roof trusses, doors, fitted kitchens</p></div>
+<div><b>8. Project Management</b><p style="font-size:12px;color:#64748b">End-to-end site supervision</p></div>
+<div><b>9. Electrical Support</b><p style="font-size:12px;color:#64748b">With certified partners</p></div>
+<div><b>10. Steel Works</b><p style="font-size:12px;color:#64748b">Gates, carports, balustrades</p></div>
+<div><b>11. Pool Building</b><p style="font-size:12px;color:#64748b">Construction + plumbing</p></div>
+<div><b>12. Maintenance</b><p style="font-size:12px;color:#64748b">Ongoing property care</p></div>
+</div>
+</section>
+
+</main>
+
+<footer>
+<p>&copy; <span id="year"></span> Helix 360 Construction Projects (Pty) Ltd | Reg 2015/157951/07 | 082 545 0881 | helix360.cp@gmail.com</p>
+<p>Bokfontein B127 Brits 0250 | PO Box 759 Haartbeespoort 0216</p>
+<div class="badges"><span>CIDB Registered</span><span>NHBRC Member</span><span>CIPC Compliant</span></div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery - Helix 360</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.gallery-page{ padding: 90px 28px 40px; max-width:1200px; margin:0 auto; }
+.gallery-grid{ display:grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap:16px; margin-top:20px; }
+.gallery-grid img{ width:100%; height:220px; object-fit:cover; border-radius:12px; cursor:pointer; border:2px solid #e2e8f0; }
+.gallery-grid img:hover{ border-color:#2563eb; transform:scale(1.02); transition:0.2s; }
+.filter-btns{ display:flex; gap:8px; flex-wrap:wrap; justify-content:center; margin:16px 0; }
+.filter-btns button{ padding:8px 14px; border-radius:20px; border:1px solid #cbd5e1; background:white; cursor:pointer; }
+.filter-btns button.active{ background:#0f172a; color:white; }
+#lightbox{ display:none; position:fixed; inset:0; background:rgba(2,6,23,0.9); z-index:9999; justify-content:center; align-items:center; }
+#lightbox.active{ display:flex; }
+#lightbox img{ max-width:90%; max-height:85vh; border-radius:16px; }
+</style>
+</head>
+<body>
+<header class="dashboard-header">
+<div class="logo"><img src="../images/logo.jpg" alt="logo" class="logo-img" style="height:40px"></div>
+<nav class="nav"><a href="../index.html">Home</a><a href="../services.html">Services</a><a href="../projects.html">Projects</a></nav>
+<button class="cta" onclick="window.location.href='../enquiry.html'">Get Quote</button>
+</header>
+
+<div class="gallery-page">
+<h1 style="text-align:center">Our Work Gallery</h1>
+<p style="text-align:center;color:#64748b" id="gallerySubtitle">Full 360° showcase - click to view</p>
+
+<div class="filter-btns">
+<button class="active" onclick="filterGallery('all', this)">All</button>
+<button onclick="filterGallery('plumbing', this)">Plumbing</button>
+<button onclick="filterGallery('residential', this)">Residential</button>
+<button onclick="filterGallery('renovation', this)">Renovation</button>
+<button onclick="filterGallery('design', this)">Design</button>
+<button onclick="filterGallery('civil', this)">Civil</button>
+<button onclick="filterGallery('finishing', this)">Finishing</button>
+</div>
+
+<div class="gallery-grid" id="galleryGrid"></div>
+</div>
+
+<div id="lightbox" onclick="this.classList.remove('active')"><img id="lightboxImg" src=""></div>
+
+<script>
+const allImages = {
+plumbing: ["../images/plumbing.jpg","https://images.unsplash.com/photo-1541888946425-d81bb19240f6?w=600","https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=600"],
+residential: ["images/residential-1.jpg","images/residential-2.jpg","images/residential-3.jpg","images/residential-4.jpg","images/residential-5.jpg","images/residential-6.jpg"],
+renovation: ["https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=600","https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600"],
+design: ["https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600"],
+civil: ["https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600","https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600"],
+finishing: ["https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=600"]
+};
+
+function render(type){
+const grid = document.getElementById('galleryGrid');
+let imgs = [];
+if(type==='all'){ Object.values(allImages).forEach(arr => imgs = imgs.concat(arr)); }
+else { imgs = allImages[type] || []; }
+grid.innerHTML = imgs.map(src => `<img src="${src}" onclick="openLightbox('${src}')">`).join('');
+document.getElementById('gallerySubtitle').innerText = type==='all' ? 'All projects' : type.charAt(0).toUpperCase()+type.slice(1) + ' - ' + imgs.length + ' photos';
+}
+function filterGallery(type, btn){
+document.querySelectorAll('.filter-btns button').forEach(b=>b.classList.remove('active'));
+btn.classList.add('active');
+render(type);
+}
+function openLightbox(src){
+document.getElementById('lightboxImg').src = src;
+document.getElementById('lightbox').classList.add('active');
+}
+
+// Auto-open based on URL like gallery/?service=plumbing
+const params = new URLSearchParams(window.location.search);
+const service = params.get('service') || 'all';
+render(service);
+
+</script>
+</body>
+</html>
+

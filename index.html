@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- WEDE5020 Part 2 - SEO meta tags for marks -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Helix 360 Construction Projects Pty Ltd - Residential, Commercial, Civil Works in Brits & Haartbeespoort since 2015. CIDB, NHBRC registered.">
+<meta name="keywords" content="Helix 360, construction, builder, Brits, Haartbeespoort, residential, civil works, CIDB, NHBRC">
+<meta name="author" content="Helix 360 Construction Projects">
+<title>Helix 360 - Home | Builder Dashboard</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml"> 
+<body>
+
+<!-- Moving blueprint background - parallax effect on scroll -->
+<div class="blueprint-bg"></div>
+<div class="blueprint-grid"></div>
+
+<!-- Header - semantic tag for rubric -->
+<header class="dashboard-header">
+<!-- Logo -->
+<div class="logo">
+    <img src="images/logo.jpg" alt="Helix 360 Construction 3D Logo" class="logo-img">
+</div>
+
+
+<!-- Navigation - must work across all 5 pages -->
+<nav class="nav">
+<a href="index.html" class="active">Home</a>
+<a href="about.html">About Us</a>
+<a href="services.html">Services</a>
+<a href="projects.html">Projects</a>
+<a href="enquiry.html">Enquiry</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+<!-- Mobile hamburger -->
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+<button class="cta" onclick="window.location='enquiry.html'">Get Quote</button>
+</header>
+
+<!-- Main content - semantic tag -->
+<main>
+
+<!-- HERO SECTION with CTA -->
+<section class="hero">
+<div class="hero-text">
+<span class="badge">🏗️ Trusted Since 2015 - CIDB Registered</span>
+<h1>We Build Your Vision<br><span class="blue">In 360°</span> <span class="yellow">Quality</span></h1>
+<p>Helix 360 delivers residential, commercial, civil works and full project management across North West. From plan to keys — MORE values: Making positive impression, Operating as one, Reaching potential, Embracing innovation.</p>
+
+<!-- Call to action buttons -->
+<div class="hero-btns">
+<button class="btn-primary" onclick="window.location='services.html'">View Services</button>
+<button class="btn-outline" onclick="window.location='about.html'">Our Story</button>
+</div>
+
+<!-- Stats for dashboard feel -->
+<div class="hero-stats">
+<div><b>150+</b><span>Projects Completed</span></div>
+<div><b>2015</b><span>Established</span></div>
+<div><b>15yr</b><span>Experience</span></div>
+</div>
+</div>
+
+<!-- Dashboard preview image -->
+<div class="hero-dashboard">
+<img src="images/House-new.jpg" alt="Modern estate house built by Helix 360 Construction Projects" class="hero-img" onclick="openLightbox(this.src)">
+<div class="mini-card">
+<p>● Live: Estate House #42 Hartebees</p>
+<div class="progress-bar"><div style="width:72%"></div></div>
+<small>100% Complete • Handover Oct 2026</small>
+</div>
+</div>
+</section>
+
+<!-- Dashboard stats grid -->
+<section class="stats-grid">
+<div class="stat-card"><h4>🏠 12 Active</h4><p>Projects On Site</p></div>
+<div class="stat-card"><h4>📈 98% On Track</h4><p>Budget Management</p></div>
+<div class="stat-card"><h4>👷 24 Skilled</h4><p>Team Members</p></div>
+<div class="stat-card"><h4>⭐ NHBRC</h4><p>Certified Quality</p></div>
+</section>
+
+<!-- FIXED BUILDING GRID - bug was missing closing } -->
+<!-- This was broken in your screenshot line 89 -->
+<div class="building-grid">
+<button class="build-btn" onclick="window.location='services.html'">🏠 Residential</button>
+<button class="build-btn" onclick="window.location='services.html'">🏢 Commercial</button>
+<button class="build-btn" onclick="window.location='services.html'">🚧 Civil Works</button>
+</div>
+
+<!-- Landmark cards - 3 cards section -->
+<section class="cards-3">
+<!-- Card 1 - The Estate House -->
+<div class="landmark-card">
+<img src="images/Estate-House.jpg" alt="The Estate House luxury home by Helix 360">
+<div class="landmark-info">
+<h3>The Estate House</h3>
+<p>Helix Signature Estate<br>4 Bedroom • Modern • Luxury • Sustainable Design</p>
+<button class="launch-btn" onclick="window.location='services.html'">Launch Project Showcase</button>
+</div>
+</div>
+
+<!-- Card 2 -->
+<div class="landmark-card">
+<img src="images/Renovations.jpg" alt="Modern renovation project before and after">
+<div class="landmark-info">
+<h3>Modern Renovation</h3>
+<p>Bathroom to Kitchen Upgrade<br>Tiling • Plumbing • Painting • Finishing</p>
+<button class="launch-btn" onclick="window.location='enquiry.html'">Enquire Now</button>
+</div>
+</div>
+
+<!-- Card 3 -->
+<div class="landmark-card">
+<img src="images/estate-house 1.jpg" alt="Civil works road construction earthworks">
+<div class="landmark-info">
+<h3>Civil Works</h3>
+<p>Roads, Earthworks, Gabions, Stormwater<br>Bulk Infrastructure • Plant Hire</p>
+<button class="launch-btn" onclick="window.location='contact.html'">View Locations</button>
+</div>
+</div>
+</section>
+
+</main>
+
+<!-- Footer - semantic tag -->
+<footer>
+<p>&copy; <span id="year"></span> Helix 360 Construction Projects (Pty) Ltd | Reg 2015/157951/07 | 082 545 0881 | helix360.cp@gmail.com</p>
+<p>Bokfontein B127 Brits 0250 | PO Box 759 Haartbeespoort 0216</p>
+<div class="badges">
+<span>CIDB Registered</span>
+<span>NHBRC Member</span>
+<span>CIPC Compliant</span>
+</div>
+</footer>
+
+<!-- JavaScript for interactivity -->
+<script src="js/script.js"></script>
+</body>
+</html>

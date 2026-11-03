@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://genuineglimpse.github.io/4.-Helix360_website/sitemap.xml
+
+# Disallow no pages - allow all crawlers
+Disallow:

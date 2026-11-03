@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects - Helix 360 | Portfolio Dashboard</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="blueprint-bg"></div>
+<div class="blueprint-grid"></div>
+<header class="dashboard-header">
+<div class="logo"><img src="images/logo.jpg" alt="Helix 360" class="logo-img"></div>
+<nav class="nav">
+<a href="index.html">Home</a>
+<a href="about.html">About Us</a>
+<a href="services.html">Services</a>
+<a href="projects.html" class="active">Projects</a>
+<a href="enquiry.html">Enquiry</a>
+<a href="contact.html">Contact</a>
+</nav>
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+<button class="cta" onclick="window.location='enquiry.html'">Get Quote</button>
+</header>
+
+<main>
+<div class="services-wrapper" style="text-align:center; display:flex; flex-direction:column; align-items:center;">
+<h1 style="text-align:center; margin:0 auto; width:100%;">Projects Portfolio Dashboard</h1>
+<p style="color:#163053; text-align:center; margin:8px auto 0 auto; max-width:850px; line-height:1.5;">150+ completed • Filter by category • Click to view showcase</p>
+</div>
+
+<div class="filter-bar">
+<button class="filter-btn active" onclick="filterProjects('all', this)">All Projects (8)</button>
+<button class="filter-btn" onclick="filterProjects('residential', this)">🏠 Residential</button>
+<button class="filter-btn" onclick="filterProjects('commercial', this)">🏢 Commercial</button>
+<button class="filter-btn" onclick="filterProjects('civil', this)">🚧 Civil</button>
+<button class="filter-btn" onclick="filterProjects('renovation', this)">🔨 Renovation</button>
+</div>
+
+<div class="services-grid" id="projectsGrid">
+
+<!-- Project 1 - FIXED: now uses 'fountainbrook' text key + numbers -->
+<div class="service-card" data-category="residential">
+<div class="card-top">
+<img src="images/fountainbrook-1.jpeg" alt="Fountainbrook" onclick="openProject('fountainbrook',0)" style="cursor:pointer; width:100%; height:220px; object-fit:cover;">
+<span class="status completed">Completed 2022</span>
+</div>
+<div class="card-body">
+<h3>Fountainbrook Estate House</h3>
+<p>4 Bedroom Modern Luxury • 320sqm</p>
+<div class="project-meta"><span>📍 Fountainbrook</span><span>R2.8M</span></div>
+<div class="same-line-gallery" style="display:flex; gap:6px; overflow-x:auto; padding:8px 0;">
+<img class="g-thumb" src="images/fountainbrook-1.jpeg" onclick="openProject('fountainbrook',0)" style="width:68px; height:45px; object-fit:cover; border-radius:6px; cursor:pointer;">
+<img class="g-thumb" src="images/fountainbrook-2.jpeg" onclick="openProject('fountainbrook',1)" style="width:68px; height:45px; object-fit:cover; border-radius:6px; cursor:pointer;">
+<img class="g-thumb" src="images/fountainbrook-3.jpeg" onclick="openProject('fountainbrook',2)" style="width:68px; height:45px; object-fit:cover; border-radius:6px; cursor:pointer;">
+<img class="g-thumb" src="images/fountainbrook-4.jpeg" onclick="openProject('fountainbrook',3)" style="width:68px; height:45px; object-fit:cover; border-radius:6px; cursor:pointer;">
+<img class="g-thumb" src="images/fountainbrook-5.jpeg" onclick="openProject('fountainbrook',4)" style="width:68px; height:45px; object-fit:cover; border-radius:6px; cursor:pointer;">
+</div>
+</div>
+</div>
+
+<!-- COPY THIS FOR EACH PROJECT - JUST CHANGE KEY -->
+<div class="service-card" data-category="residential">
+<div class="card-top">
+<img src="images/seasonsbushveld-1.jpeg" alt="Seasons 311" onclick="openProject('seasons311',0)" style="cursor:pointer; width:100%; height:220px; object-fit:cover;">
+<span class="status active">45% Brickwork</span>
+</div>
+<div class="card-body">
+<h3>Seasons Bushveld 311</h3>
+<p>Double Storey Luxury • Red Brick + Steel</p>
+<div class="project-meta"><span>📍 Seasons Estate</span><span>R3.2M</span></div>
+<div class="same-line-gallery" style="display:flex; gap:6px; overflow-x:auto; padding:8px 0;">
+<img src="images/seasonsbushveld-1.jpeg" onclick="openProject('seasons311',0)" style="width:68px; height:45px; object-fit:cover; border-radius:6px; cursor:pointer;">
+<img src="images/seasonsbushveld-2.jpeg" onclick="openProject('seasons311',1)" style="width:68px; height:45px; object-fit:cover; border-radius:6px; cursor:pointer;">
+<img src="images/seasonsbushveld-3.jpeg" onclick="openProject('seasons311',2)" style="width:68px; height:45px; object-fit:cover; border-radius:6px; cursor:pointer;">
+<img src="images/seasonsbushveld-4.jpeg" onclick="openProject('seasons311',3)" style="width:68px; height:45px; object-fit:cover; border-radius:6px; cursor:pointer;">
+<img src="images/seasonsbushveld-5.jpeg" onclick="openProject('seasons311',4)" style="width:68px; height:45px; object-fit:cover; border-radius:6px; cursor:pointer;">
+</div>
+</div>
+</div>
+
+<div class="service-card" data-category="residential">
+<div class="card-top">
+<img src="images/projects-1.jpeg" alt="Projects" onclick="openProject('projects',0)" style="cursor:pointer; width:100%; height:220px; object-fit:cover;">
+<span class="status active">95% Live</span>
+</div>
+<div class="card-body">
+<h3>Projects</h3>
+<p>3 Bedroom Family Home • Pool renovations • Painting & Tiling • 2 Shops Renovation • Roadworks • Retaining Walls • Kitchen Remodels</p>
+<div class="project-meta"><span>📍 Various Clients</span><span>R1.5M - 4.5M</span></div>
+<div class="same-line-gallery" style="display:flex; gap:6px; overflow-x:auto; padding:8px 0;">
+<img src="images/projects-2.jpeg" onclick="openProject('projects',1)" style="width:68px; height:45px; object-fit:cover; border-radius:6px; cursor:pointer;">
+<img src="images/projects-3.jpeg" onclick="openProject('projects',2)" style="width:68px; height:45px; object-fit:cover; border-radius:6px; cursor:pointer;">
+<img src="images/projects-4.jpeg" onclick="openProject('projects',3)" style="width:68px; height:45px; object-fit:cover; border-radius:6px; cursor:pointer;">
+<img src="images/projects-5.jpeg" onclick="openProject('projects',4)" style="width:68px; height:45px; object-fit:cover; border-radius:6px; cursor:pointer;">
+</div>
+</div>
+
+<div class="service-card" data-category="commercial" onclick="openProject('brits',0)"><div class="card-top"><img src="images/brits-1.jpeg"><span class="status completed">Completed 2023</span></div><div class="card-body"><h3>Brits CBD Shops</h3><p>2 Shops Renovation</p><div class="project-meta"><span>📍 Brits CBD</span><span>R450k</span></div></div></div>
+<div class="service-card" data-category="civil" onclick="openProject('majakaneng',0)"><div class="card-top"><img src="images/majakaneng-1.jpeg"><span class="status active">Bulk</span></div><div class="project-meta"><span>📍 Majakaneng</span><span>R1.1M</span></div></div></div>
+
+</div>
+</main>
+
+<!-- ONE MODAL ONLY - FIXED CLOSE -->
+<div id="projectModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:99999; justify-content:center; align-items:center;">
+<div style="background:white; width:95%; max-width:700px; border-radius:12px; position:relative;">
+<button onclick="closeModal()" style="position:absolute; top:8px; right:12px; font-size:32px; background:white; border:none; width:36px; height:36px; border-radius:50%; cursor:pointer; z-index:99;">×</button>
+<div style="position:relative; background:#000; border-radius:12px 12px 0 0; overflow:hidden;">
+<img id="modalImage" src="" style="width:100%; height:400px; object-fit:cover; display:block;">
+<button onclick="prevImage()" style="position:absolute; left:10px; top:50%; transform:translateY(-50%); background:white; border:none; width:44px; height:44px; border-radius:50%; cursor:pointer; font-size:24px; font-weight:bold;">‹</button>
+<button onclick="nextImage()" style="position:absolute; right:10px; top:50%; transform:translateY(-50%); background:white; border:none; width:44px; height:44px; border-radius:50%; cursor:pointer; font-size:24px; font-weight:bold;">›</button>
+<div id="imageCounter" style="position:absolute; bottom:10px; right:10px; background:rgba(0,0,0,0.7); color:white; padding:5px 12px; border-radius:20px; font-size:12px;">1 / 5</div>
+</div>
+<div style="padding:16px;">
+<h2 id="modalTitle" style="margin:0;"></h2>
+<p id="modalDesc" style="color:#666; margin:6px 0;"></p>
+<div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; font-size:13px; margin:10px 0;">
+<div><b>Client:</b> <span id="modalClient"></span></div>
+<div><b>Duration:</b> <span id="modalDuration"></span></div>
+<div><b>Budget:</b> <span id="modalBudget"></span></div>
+<div><b>Status:</b> <span id="modalStatus"></span></div>
+</div>
+<video id="modalVideo" controls style="width:100%; display:none; margin-top:10px; border-radius:8px;"><source id="videoSource" src=""></video>
+<button onclick="closeModal()" style="margin-top:12px; width:100%; padding:12px; background:#f0f0f0; border:none; border-radius:8px; cursor:pointer; font-weight:bold;">Close</button>
+</div>
+</div>
+</div>
+
+<script src="JS/script.js"></script>
+</body>
+</html>
